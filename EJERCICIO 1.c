@@ -70,38 +70,48 @@ int resetArr(arrayLength_t *arr) {
 
 // Apartado 6
 int main() {
+    // Apartado 6.1
     arrayLength_t al1, al2;
     if (initArray(&al1) != 0 || initArray(&al2) != 0) {
         printf("Error en inicialización\n");
         return -1;
     }
     
+    // Apartado 6.2
     for (int i = 0; i < 10; i++) {
         if (addElement(&al1, i * 10) != 0) {
             printf("Error al añadir elemento %d en al1\n", i * 10);
         }
     }
+
+    // Apartado 6.3
     printArr(&al1);
     
+    // Apartado 6.4
     for (int i = 1; i < 10; i += 2) {
         if (setElement(&al1, i, i) != 0) {
             printf("Error al actualizar elemento en posición %d\n", i);
         }
     }
+
+    // Apartado 6.5
     printArr(&al1);
     
+    // Apartado 6.6
     for (int i = 0; i < 10; i += 2) {
         if (addElement(&al2, al1.arrInt[i]) != 0) {
             printf("Error al copiar elemento de al1 a al2 en posición %d\n", i);
         }
     }
     
+    // Apartado 6.7
     for (int i = al2.arrSize, j = 0; i < 10 && j < 5; i++, j++) {
         if (addElement(&al2, j) != 0) {
             printf("Error al añadir valor %d en al2\n", j);
         }
     }
     
+    // Apartado 6.8
     printArr(&al2);
     return 0;
 }
